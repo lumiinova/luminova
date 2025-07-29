@@ -3,90 +3,143 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Luminova Bot</title>
+  <title>Luminova | Shop Trusted Products</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     body { font-family: 'Poppins', sans-serif; }
   </style>
 </head>
-<body class="bg-white text-gray-800">
+<body class="bg-[#fefefe] text-gray-800">
 
-  <!-- Header -->
-  <header class="shadow sticky top-0 z-50 bg-white">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-      <h1 class="text-2xl font-bold text-purple-600">Luminova</h1>
-      <nav class="space-x-6 hidden md:block">
-        <a href="#home" class="hover:text-purple-600">Home</a>
-        <a href="#shop" class="hover:text-purple-600">Shop</a>
-        <a href="#about" class="hover:text-purple-600">About</a>
-        <a href="#faq" class="hover:text-purple-600">FAQ</a>
-      </nav>
-    </div>
+  <header class="shadow sticky top-0 bg-white z-50 px-6 py-4 flex justify-between items-center">
+    <h1 class="text-2xl font-bold text-purple-700">✨ Luminova</h1>
+    <nav class="space-x-4 text-sm font-medium">
+      <a href="#products" class="text-purple-600 hover:underline">Shop</a>
+      <a href="#about" class="text-purple-600 hover:underline">About</a>
+      <a href="#faq" class="text-purple-600 hover:underline">FAQ</a>
+    </nav>
   </header>
 
-  <!-- Hero Section -->
-  <section id="home" class="bg-purple-50 py-20">
-    <div class="max-w-4xl mx-auto text-center">
-      <h2 class="text-4xl font-bold text-purple-700 mb-4">Discover Best Deals Instantly</h2>
-      <p class="text-lg text-gray-600 mb-6">Get top products with photos and affiliate links. Just type a keyword and explore.</p>
-    </div>
+  <section class="text-center py-16 bg-gradient-to-r from-purple-100 to-purple-200">
+    <h2 class="text-4xl font-bold mb-4 text-purple-800">Welcome to Luminova</h2>
+    <p class="text-lg text-purple-700">Only hand-picked, trusted skincare and wellness products.</p>
   </section>
 
-  <!-- Product Grid -->
-  <section id="shop" class="py-10 px-4 max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-6">
+  <section id="products" class="max-w-7xl mx-auto px-4 py-10">
+    <h3 class="text-2xl font-semibold text-gray-800 mb-6 text-center">Featured Products</h3>
 
-    <!-- Mustach Face Wash -->
-    <div class="bg-white rounded-xl shadow border border-gray-200">
-      <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQUMQXFBfuPByneITNChwdHHFCPqIgUe8gbQ28ZhjheciKG-mU4-cyc3xixURPAnUERmBXmFPLmIeS3p2_CJXChCKz_fTLWdtgA2wX9bRU">
-      <div class="p-4">
-        <h4 class="font-semibold text-base mb-1">Mustach Face Wash</h4>
-        <p class="text-gray-600 text-sm mb-2">Fights acne, pimples & brightens skin — all skin types</p>
-        <a href="https://www.wishlink.com/share/tk6x3" target="_blank" class="text-purple-600 text-sm font-medium hover:underline">Buy Now</a>
+    <div class="flex justify-center mb-6">
+      <input type="text" id="searchInput" placeholder="Search trusted products..." class="w-full max-w-md p-3 border border-gray-300 rounded shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-400" onkeyup="filterProducts()" />
+    </div>
+
+    <div id="productContainer" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <!-- Product Items Will Be Injected Here -->
+    </div>
+
+    <div class="flex justify-center mt-8" id="pagination"></div>
+  </section>
+
+  <section id="about" class="max-w-4xl mx-auto px-4 py-16 text-center">
+    <h3 class="text-2xl font-bold text-gray-800 mb-4">About Luminova</h3>
+    <p class="text-gray-700 text-base leading-relaxed">
+      Luminova is your trusted destination for curated skincare and wellness products. We believe in quality, transparency, and building long-term trust with our users. Every product listed here is hand-picked and verified to meet our standards of care.
+    </p>
+  </section>
+
+  <section id="faq" class="max-w-4xl mx-auto px-4 py-16">
+    <h3 class="text-2xl font-bold text-gray-800 mb-6 text-center">Frequently Asked Questions</h3>
+    <div class="space-y-6">
+      <div>
+        <h4 class="font-semibold text-purple-700">1. Are all products genuine?</h4>
+        <p class="text-gray-700 text-sm">Yes, we list only trusted products with verified links from reputable sellers and marketplaces.</p>
       </div>
-    </div>
-
-   <!-- ✅ Cetaphil Product Card -->
-<div class="bg-white rounded-xl shadow-md overflow-hidden border border-gray-200 max-w-xs mx-auto my-6">
-  <img src="https://www.cetaphil.in/dw/image/v2/BGGN_PRD/on/demandware.static/-/Sites-galderma-in-m-catalog/default/dwd3ab5e71/8906005274105/18.jpg?sw=450&sh=450&sm=fit&q=85" alt="Cetaphil Gentle Skin Cleanser" class="w-full h-48 object-cover object-center">
-  <div class="p-4">
-    <h4 class="font-semibold text-base mb-1">Cetaphil Gentle Skin Cleanser</h4>
-    <p class="text-gray-600 text-sm mb-2">Mild, non-irritating formula for everyday use</p>
-    <a href="https://www.wishlink.com/share/qtqmq" target="_blank" class="text-purple-600 text-sm font-medium hover:underline">Buy Now</a>
-  </div>
-</div>
-
-
-  </section>
-
-  <!-- About Section -->
-  <section id="about" class="bg-gray-100 py-14">
-    <div class="max-w-4xl mx-auto text-center px-6">
-      <h3 class="text-3xl font-bold text-purple-700 mb-4">About Luminova Bot</h3>
-      <p class="text-gray-600">Luminova Bot helps users find trending products instantly by searching with simple keywords. Built with affiliate link integration, it's free, fast, and mobile-friendly.</p>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section id="faq" class="py-14">
-    <div class="max-w-4xl mx-auto px-6">
-      <h3 class="text-3xl font-bold text-purple-700 text-center mb-6">FAQs</h3>
-      <div class="space-y-4">
-        <div>
-          <h4 class="font-semibold">Is it free to use?</h4>
-          <p class="text-gray-600">Yes, this tool is 100% free for all users.</p>
-        </div>
-        <div>
-          <h4 class="font-semibold">Where are these links from?</h4>
-          <p class="text-gray-600">They are affiliate links from platforms like Amazon, Flipkart, and Meesho.</p>
-        </div>
-        <div>
-          <h4 class="font-semibold">Do links work on mobile?</h4>
-          <p class="text-gray-600">Yes, most links are mobile-optimized and open in the app or browser directly.</p>
-        </div>
+      <div>
+        <h4 class="font-semibold text-purple-700">2. How often is the product list updated?</h4>
+        <p class="text-gray-700 text-sm">We update our catalog regularly to keep up with trends and user demand.</p>
+      </div>
+      <div>
+        <h4 class="font-semibold text-purple-700">3. How can I contact support?</h4>
+        <p class="text-gray-700 text-sm">You can reach out to us via our Instagram DMs or email (details coming soon).</p>
       </div>
     </div>
   </section>
+
+  <footer class="bg-gray-100 text-center py-6 mt-12 border-t">
+    <p class="text-sm text-gray-500">© 2025 Luminova. All rights reserved. Built with trust.</p>
+  </footer>
+
+  <script>
+    const products = [
+      {
+        title: "Mustach Face Wash",
+        description: "Fights acne, pimples & brightens skin",
+        img: "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQUMQXFBfuPByneITNChwdHHFCPqIgUe8gbQ28ZhjheciKG-mU4-cyc3xixURPAnUERmBXmFPLmIeS3p2_CJXChCKz_fTLWdtgA2wX9bRU",
+        link: "https://www.wishlink.com/share/tk6x3"
+      },
+      {
+        title: "Cetaphil Gentle Skin Cleanser",
+        description: "Mild, non-irritating formula for all skin types",
+        img: "https://www.cetaphil.in/dw/image/v2/BGGN_PRD/on/demandware.static/-/Sites-galderma-in-m-catalog/default/dwd3ab5e71/8906005274105/18.jpg?sw=450&sh=450&sm=fit&q=85",
+        link: "https://www.wishlink.com/share/qtqmq"
+      },
+    ];
+
+    const productsPerPage = 12;
+    let currentPage = 1;
+
+    function renderProducts(page = 1) {
+      const container = document.getElementById("productContainer");
+      const start = (page - 1) * productsPerPage;
+      const end = start + productsPerPage;
+      const visibleProducts = products.slice(start, end);
+
+      container.innerHTML = visibleProducts.map(p => `
+        <div class="bg-white rounded-xl shadow-md border hover:shadow-lg transition">
+          <img src="${p.img}" alt="${p.title}" class="w-full h-48 object-cover object-center rounded-t-xl" />
+          <div class="p-4">
+            <h4 class="font-semibold text-base mb-1 text-gray-800">${p.title}</h4>
+            <p class="text-gray-600 text-sm mb-2">${p.description}</p>
+            <a href="${p.link}" class="inline-block mt-2 text-sm text-white bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded font-medium transition" target="_blank">Buy Now</a>
+          </div>
+        </div>`
+      ).join("");
+
+      renderPagination();
+    }
+
+    function renderPagination() {
+      const totalPages = Math.ceil(products.length / productsPerPage);
+      const pagination = document.getElementById("pagination");
+      pagination.innerHTML = "";
+
+      for (let i = 1; i <= totalPages; i++) {
+        pagination.innerHTML += `<button onclick="goToPage(${i})" class="mx-1 px-3 py-1 rounded border ${i === currentPage ? 'bg-purple-600 text-white' : 'bg-white text-purple-600 border-purple-600 hover:bg-purple-50'}">${i}</button>`;
+      }
+    }
+
+    function goToPage(page) {
+      currentPage = page;
+      renderProducts(page);
+    }
+
+    function filterProducts() {
+      const query = document.getElementById("searchInput").value.toLowerCase();
+      const filtered = products.filter(p => p.title.toLowerCase().includes(query) || p.description.toLowerCase().includes(query));
+      document.getElementById("productContainer").innerHTML = filtered.map(p => `
+        <div class="bg-white rounded-xl shadow-md border hover:shadow-lg transition">
+          <img src="${p.img}" alt="${p.title}" class="w-full h-48 object-cover object-center rounded-t-xl" />
+          <div class="p-4">
+            <h4 class="font-semibold text-base mb-1 text-gray-800">${p.title}</h4>
+            <p class="text-gray-600 text-sm mb-2">${p.description}</p>
+            <a href="${p.link}" class="inline-block mt-2 text-sm text-white bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded font-medium transition" target="_blank">Buy Now</a>
+          </div>
+        </div>`
+      ).join("");
+    }
+
+    renderProducts();
+  </script>
 
 </body>
 </html>
