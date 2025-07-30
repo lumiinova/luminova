@@ -836,22 +836,27 @@
    
     ];
 
-    const productsPerPage = 4; // Change how many products per page here
+    const productsPerPage = 8; // Change how many products per page here
     let currentPage = 1;
 
-    function renderProducts(productsList) {
-      const container = document.getElementById("productContainer");
-      container.innerHTML = productsList.map((p, i) => `
-        <div class="floating-card overflow-hidden hover:shadow-lg transition cursor-pointer">
-          <img src="${p.img}" alt="${p.title}" class="w-full h-32 object-contain object-center rounded-t-xl" />
-          <div class="p-4">
-            <h4 class="font-semibold text-base mb-1 text-gray-800">${p.title}</h4>
-            <p class="text-gray-600 text-sm mb-2">${p.description}</p>
-            <a href="${p.link}" target="_blank" rel="noopener" class="inline-block mt-2 text-sm text-white bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded font-medium transition">Buy Now</a>
-          </div>
+   function renderProducts(productsList) {
+  const container = document.getElementById("productContainer");
+  const startIndex = (currentPage - 1) * productsPerPage;
+  container.innerHTML = productsList.map((p, i) => {
+    const productNumber = startIndex + i + 1;
+    return `
+      <div class="floating-card overflow-hidden hover:shadow-lg transition cursor-pointer">
+        <img src="${p.img}" alt="${p.title}" class="w-full h-32 object-contain object-center rounded-t-xl" />
+        <div class="p-4">
+          <h4 class="font-semibold text-base mb-1 text-gray-800">${productNumber}. ${p.title}</h4>
+          <p class="text-gray-600 text-sm mb-2">${p.description}</p>
+          <a href="${p.link}" target="_blank" rel="noopener" class="inline-block mt-2 text-sm text-white bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded font-medium transition">Buy Now</a>
         </div>
-      `).join('');
-    }
+      </div>
+    `;
+  }).join('');
+}
+
 
     function renderPagination(totalProducts) {
       const paginationContainer = document.getElementById('pagination');
