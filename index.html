@@ -1119,21 +1119,39 @@
     }
 
     function renderPagination(totalProducts) {
-      const paginationContainer = document.getElementById('pagination');
-      const totalPages = Math.ceil(totalProducts / productsPerPage);
-      let buttonsHTML = '';
-      for (let i = 1; i <= totalPages; i++) {
-        buttonsHTML += `
-          <button
-            class="px-3 py-1 rounded ${i === currentPage ? 'bg-purple-600 text-white' : 'bg-gray-200 text-gray-700 hover:bg-purple-300'}"
-            onclick="goToPage(${i})"
-          >
-            ${i}
-          </button>
-        `;
-      }
-      paginationContainer.innerHTML = buttonsHTML;
+  const paginationContainer = document.getElementById('pagination');
+  const totalPages = Math.ceil(totalProducts / productsPerPage);
+  let buttonsHTML = '';
+
+  if (totalPages > 4) {
+    if (currentPage > 1) {
+      buttonsHTML += `<button class="px-3 py-1 rounded bg-gray-200 text-gray-700 hover:bg-purple-300" onclick="goToPage(${currentPage - 1})">Prev</button>`;
     }
+  }
+
+  for (let i = 1; i <= totalPages; i++) {
+    // Show only page numbers around current page for cleaner look
+    if (totalPages <= 4 || (i >= currentPage - 2 && i <= currentPage + 2)) {
+      buttonsHTML += `
+        <button
+          class="px-3 py-1 rounded ${i === currentPage ? 'bg-purple-600 text-white' : 'bg-gray-200 text-gray-700 hover:bg-purple-300'}"
+          onclick="goToPage(${i})"
+        >
+          ${i}
+        </button>
+      `;
+    }
+  }
+
+  if (totalPages > 4) {
+    if (currentPage < totalPages) {
+      buttonsHTML += `<button class="px-3 py-1 rounded bg-gray-200 text-gray-700 hover:bg-purple-300" onclick="goToPage(${currentPage + 1})">Next</button>`;
+    }
+  }
+
+  paginationContainer.innerHTML = buttonsHTML;
+}
+
 
     function goToPage(page) {
       currentPage = page;
